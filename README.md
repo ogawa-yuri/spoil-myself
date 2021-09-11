@@ -34,7 +34,7 @@ https://docs.google.com/spreadsheets/d/1i5qLtV4Q8eZpTI0qNy5rkAIOxZUz1YAqhzO4xamO
 https://docs.google.com/spreadsheets/d/1i5qLtV4Q8eZpTI0qNy5rkAIOxZUz1YAqhzO4xamOKX8/edit#gid=57484594
 -------------
 # ER図
-![38E30640-39D2-46B8-A1A0-EB0BEAB30788](https://user-images.githubusercontent.com/77226714/132927801-220cc2d4-8090-4886-aea5-8a2ff0e32c46.jpeg)
+![BB897B70-77A2-4E51-807D-1CF64F3440FB](https://user-images.githubusercontent.com/77226714/132947276-6933fb74-b9e0-44b2-93cf-83ac9cb5c502.jpeg)
 -------------
 # 画面遷移図
 ![E2385948-4F5D-4B44-A50C-4C157C7EE0BB](https://user-images.githubusercontent.com/77226714/132780704-33482d72-79c9-46e2-8e1a-54c2b71548fc.jpeg)
