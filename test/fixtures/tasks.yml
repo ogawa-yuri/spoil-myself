@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  expired_at: 2021-09-28 20:28:05
+  status: false
+  roulette: false
+  task_image: MyString
+  user: one
+
+two:
+  content: MyText
+  expired_at: 2021-09-28 20:28:05
+  status: false
+  roulette: false
+  task_image: MyString
+  user: two

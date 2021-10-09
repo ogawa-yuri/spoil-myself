@@ -1,0 +1,29 @@
+<%= form_with(model: task ) do |form| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <ul>
+      <% task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content, "やること：" %>
+    <%= form.text_field :content %>
+  </div>
+  <div class="field">
+    <%= form.label :expired_at, "期限："  %>
+    <%= form.date_field :expired_at %>
+  </div>
+  <div class="field">
+  <%= form.label :taask_image, "写真：" %>
+  <%= form.file_field :task_image %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

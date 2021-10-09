@@ -1,0 +1,3 @@
+
+$("#this_task_<%= @task.id %>").replaceWith("<%= j render 'tasks/edit', task: @task %>");
+$("#notice").html("<%= j flash[:notice] %>");
