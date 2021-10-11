@@ -10,6 +10,42 @@
   </head>
 
   <body>
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #c22a1f"> -->
+     <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F4CDA4">
+      <li class="navbar-brand">
+        <%= link_to "Spoli Myself", root_path, class: 'nav-link' %>
+      </li>
+      <!-- <a class="navbar-brand" href="#">Spoli Myself</a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "タスク一覧", tasks_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+            </li>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+    <%# <% if user_signed_in? %>
+      <%#= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <%# else %>
+      <%#= link_to "新規登録", new_user_registration_path %>
+      <%#= link_to "ログイン", new_user_session_path %>
+    <%# end %>
     <%= yield %>
   </body>
 </html>

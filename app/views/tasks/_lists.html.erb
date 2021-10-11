@@ -1,0 +1,29 @@
+<ul>
+  <% tasks.each do |task| %>
+    <% if task.id.present? %>
+      <ul class="checkbox">
+        <div class="card border-light mb-3">
+          <div class="card-body">
+            <h5>やること：<%= task.content %></h5>
+            <h5>期限：<%= task.expired_at %></h5>
+            <div class="task-content" id ="this_task_<%= task.id %>">
+               <p><%= link_to "編集", edit_task_path(task), remote: true %></p>
+               <p><%= link_to "削除", task_path(task), method: :delete, remote: true,
+                                                data: { confirm: "本当に削除しますか?"} %></p>
+               <p><%= link_to "完了", toggle_task_path(task), remote: true, method: :post %></p>
+            </div>
+          </div>
+        </div>
+      </ul>
+      <br>
+     <% end %>
+  <% end %>
+</ul>
+
+<script>
+    $(function () {
+        $("input[type=checkbox]").click(function () {
+            $.post('/tasks/' + $(this).data('id') + '/toggle');
+        });
+    });
+</script>

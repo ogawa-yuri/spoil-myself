@@ -1,0 +1,4 @@
+$("#tasks_area").html("<%= j(render 'tasks/lists', { tasks: Task.where(status: false).order(id: :ASC) }) %>");
+$("#task_content").val('');
+$("#task_expired_at").val('');
+$("#notice").html("<%= j flash[:notice] %>");
