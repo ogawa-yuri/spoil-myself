@@ -1,0 +1,15 @@
+<h3>マイページ画面</h3>
+<% if user_signed_in? && @user == current_user %>
+ <p class="d-flex justify-content-end">
+ </p>
+ <% end %>
+ <% if params[:id].nil? || @user.id == current_user.id %>
+   <p>名前：<%= current_user.name %></p>
+   <p>メールアドレス：<%= current_user.email %></p>
+   <br>
+   アカウントを編集しますか？
+   <%= link_to "はい", edit_user_registration_path %>
+   <br>
+   ログアウトしますか？
+   <%= link_to "はい", destroy_user_session_path, method: :delete %>
+ <% end %>
