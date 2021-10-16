@@ -1,0 +1,3 @@
+
+$("#this_reward_<%= @reward.id %>").replaceWith("<%= j render 'rewards/edit', reward: @reward %>");
+$("#notice").html("<%= j flash[:notice] %>");

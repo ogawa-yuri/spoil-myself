@@ -1,0 +1,19 @@
+<ul>
+  <% rewards.each do |reward| %>
+    <% if reward.id.present? %>
+      <ul class="checkbox">
+        <div class="card border-light mb-3">
+          <div class="card-body">
+            <h5>内容：<%= reward.content %></h5>
+            <div class="reward-content" id ="this_reward_<%= reward.id %>">
+               <p><%= link_to "編集", edit_reward_path(reward), remote: true %></p>
+               <p><%= link_to "削除", reward_path(reward), method: :delete, remote: true,
+                                                data: { confirm: "本当に削除しますか?"} %></p>
+            </div>
+          </div>
+        </div>
+      </ul>
+      <br>
+     <% end %>
+  <% end %>
+</ul>
