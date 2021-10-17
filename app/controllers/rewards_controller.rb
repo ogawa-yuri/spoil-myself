@@ -13,7 +13,7 @@ class RewardsController < ApplicationController
       if @reward.save
         format.js { render :lists }
       else
-        format.html { redirect_to rewards_path, notice: '投稿できませんでした...' }
+        format.html { redirect_to rewards_path, notice: '作成できませんでした...' }
       end
     end
   end
@@ -21,7 +21,7 @@ class RewardsController < ApplicationController
   def edit
    @reward = Reward.find(params[:id])#確認する
    respond_to do |format|
-     flash.now[:notice] = 'タスクの編集中'
+     flash.now[:notice] = 'ご褒美の編集中'
      format.js { render :edit }
    end
   end
@@ -30,10 +30,10 @@ class RewardsController < ApplicationController
    @reward = Reward.find(params[:id])
      respond_to do |format|
        if @reward.update(reward_params)
-         flash.now[:notice] = 'タスクが編集されました'
+         flash.now[:notice] = 'ご褒美が編集されました'
          format.js { render :lists }
        else
-         flash.now[:notice] = 'タスクの編集に失敗しました'
+         flash.now[:notice] = 'ご褒美の編集に失敗しました'
          format.js { render :edit_error }
        end
      end
@@ -43,7 +43,7 @@ class RewardsController < ApplicationController
     @reward = Reward.find(params[:id])
     @reward.destroy
     respond_to do |format|
-      flash.now[:notice] = 'タスクが削除されました'
+      flash.now[:notice] = 'ご褒美が削除されました'
       format.js { render :lists }
     end
   end

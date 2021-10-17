@@ -5,11 +5,11 @@ class TasksController < ApplicationController
   def index
     @tasks = Task.where(status: false).order(id: :ASC)
     @task = Task.new
+
   end
 
   def create
     @task = current_user.tasks.build(task_params)
-    binding.irb
     respond_to do |format|
       if @task.save
         format.js { render :lists }
@@ -52,14 +52,30 @@ class TasksController < ApplicationController
   def toggle
     @task = Task.find(params[:id])
     @task.update(status: true)
-    respond_to do |format|
-      flash.now[:notice] = 'タスクを完了にしました'
-      format.js { render :lists and return }
-   end
+    # tasks = current_user.tasks.where(status: true, roulette: false)
+    rewards = current_user.rewards
+    if tasks_count == 3
+      @reward_tasks.each do |task|
+        task.update(roulette: true)
+      end
+      reward_id = rand(1..rewards.count)
+      reward = current_user.rewards.find_by(id: reward_id )
+      content = reward.content
+      respond_to do |format|
+        flash.now[:notice] = "おめでとうございます！ご褒美#{content}獲得です！"
+        format.js { render :lists and return }
+      end
+    else
+      respond_to do |format|
+        flash.now[:notice] = 'タスクを完了にしました'
+        format.js { render :lists and return }
+      end
+    end
   end
 
   private
   def task_params
     params.require(:task).permit(:id, :content, :expired_at, :status)
   end
+
 end

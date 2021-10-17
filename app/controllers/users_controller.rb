@@ -2,11 +2,14 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit, :update]
 
   def show
-  @user = User.find(params[:id])
+    @user = User.find(params[:id])
+    binding.irb
+    @user.tasks
+    @task_count = tasks_count
   end
 
   def edit
-  @user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def update

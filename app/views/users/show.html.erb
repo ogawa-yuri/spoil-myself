@@ -7,6 +7,7 @@
    <p>名前：<%= current_user.name %></p>
    <p>メールアドレス：<%= current_user.email %></p>
    <p>プロフィール画像：<%= image_tag current_user.image.url %></p>
+   <p>次のご褒美獲得まで：<%= @task_count %> / 10 </p>
    <br>
    アカウントを編集しますか？
    <%= link_to "はい", edit_user_registration_path %>

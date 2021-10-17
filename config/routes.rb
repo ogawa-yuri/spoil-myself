@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'schedules/index'
   resources :tasks do
     member do
       post :toggle
