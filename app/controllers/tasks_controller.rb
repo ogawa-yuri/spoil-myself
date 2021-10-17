@@ -55,11 +55,12 @@ class TasksController < ApplicationController
     @task.update(status: true)
     # tasks = current_user.tasks.where(status: true, roulette: false)
     rewards = current_user.rewards
+    binding.irb
     if tasks_count == 3
       @reward_tasks.each do |task|
         task.update(roulette: true)
       end
-      reward_id = rand(1..rewards.count)
+      reward_id = current_user.rewards.pluck(:id).sample
       reward = current_user.rewards.find_by(id: reward_id )
       content = reward.content
       respond_to do |format|

@@ -1,4 +1,4 @@
-$("#rewards_area").html("<%= j(render 'rewards/lists', { rewards: Reward.all.order(id: :ASC) }) %>");
+$("#rewards_area").html("<%= j(render 'rewards/lists', { rewards: current_user.rewards.order(id: :ASC) }) %>");
 $("#reward_content").val('');
 $("#reward_expired_at").val('');
 $("#notice").html("<%= j flash[:notice] %>");
