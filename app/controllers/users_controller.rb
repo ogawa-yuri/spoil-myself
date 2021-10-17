@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    binding.irb
     @user.tasks
     @task_count = tasks_count
   end

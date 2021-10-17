@@ -3,7 +3,7 @@ class RewardsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @rewards = Reward.all.order(id: :ASC)
+    @rewards = current_user.rewards.order(id: :ASC)
     @reward = Reward.new
   end
 

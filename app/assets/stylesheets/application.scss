@@ -14,6 +14,7 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
  *= require bootstrap/dist/css/bootstrap.min
+ *= require simple_calendar
  *= require_tree .
  *= require_self
  */
