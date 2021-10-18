@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_28_112805) do
+ActiveRecord::Schema.define(version: 2021_10_18_130942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "rewards", force: :cascade do |t|
+    t.text "content", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_rewards_on_user_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.text "content", null: false
+    t.datetime "start_time", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_schedules_on_user_id"
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.text "content", null: false
@@ -42,9 +59,12 @@ ActiveRecord::Schema.define(version: 2021_09_28_112805) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "rewards", "users"
+  add_foreign_key "schedules", "users"
   add_foreign_key "tasks", "users"
 end

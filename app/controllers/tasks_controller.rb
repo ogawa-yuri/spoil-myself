@@ -1,10 +1,12 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :index, :toggle]
+  before_action :check_postuser, only: [:edit, :update, :destroy, :toggle]
   skip_before_action :verify_authenticity_token
 
   def index
-    @tasks = Task.where(status: false).order(id: :ASC)
+    @tasks = current_user.tasks.where(status: false).order(id: :ASC)
     @task = Task.new
+
   end
 
   def create
@@ -51,14 +53,36 @@ class TasksController < ApplicationController
   def toggle
     @task = Task.find(params[:id])
     @task.update(status: true)
-    respond_to do |format|
-      flash.now[:notice] = 'タスクを完了にしました'
-      format.js { render :lists and return }
-   end
+    # tasks = current_user.tasks.where(status: true, roulette: false)
+    rewards = current_user.rewards
+    if tasks_count == 3
+      @reward_tasks.each do |task|
+        task.update(roulette: true)
+      end
+      reward_id = current_user.rewards.pluck(:id).sample
+      reward = current_user.rewards.find_by(id: reward_id )
+      content = reward.content
+      respond_to do |format|
+        flash.now[:notice] = "おめでとうございます！ご褒美#{content}獲得です！"
+        format.js { render :lists and return }
+      end
+    else
+      respond_to do |format|
+        flash.now[:notice] = 'タスクを完了にしました'
+        format.js { render :lists and return }
+      end
+    end
   end
 
   private
   def task_params
-    params.require(:task).permit(:id, :content, :expired_at, :status)
+    params.require(:task).permit(:id, :content, :expired_at, :status, :roulette, :task_image)
+  end
+
+  def check_postuser
+    @task = Task.find(params[:id])
+    unless @task.user_id == current_user.id
+      redirect_to tasks_path
+    end
   end
 end
