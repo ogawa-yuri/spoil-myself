@@ -55,7 +55,6 @@ class TasksController < ApplicationController
     @task.update(status: true)
     # tasks = current_user.tasks.where(status: true, roulette: false)
     rewards = current_user.rewards
-    binding.irb
     if tasks_count == 3
       @reward_tasks.each do |task|
         task.update(roulette: true)
@@ -77,7 +76,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:id, :content, :expired_at, :status)
+    params.require(:task).permit(:id, :content, :expired_at, :status, :roulette, :task_image)
   end
 
   def check_postuser

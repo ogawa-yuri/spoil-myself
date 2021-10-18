@@ -38,6 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'devise-i18n'
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'mimemagic', '0.3.7'
 
 group :development, :test do
@@ -70,3 +71,4 @@ gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'font-awesome-sass'
 gem 'simple_calendar', '~> 2.0'
+gem 'pry-rails'

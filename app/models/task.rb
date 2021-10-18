@@ -1,4 +1,4 @@
 class Task < ApplicationRecord
   belongs_to :user
-  mount_uploader :task_image, ImageUploader
+  mount_uploader :task_image, TaskImageUploader
 end
