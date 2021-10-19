@@ -72,3 +72,5 @@ gem "font-awesome-rails"
 gem 'font-awesome-sass'
 gem 'simple_calendar', '~> 2.0'
 gem 'pry-rails'
+gem 'rails_admin', '~> 2.0'
+gem 'cancancan'
