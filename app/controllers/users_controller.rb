@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.tasks
     @task_count = tasks_count
+    redirect_to tasks_path unless @user == current_user
   end
 
   def edit
