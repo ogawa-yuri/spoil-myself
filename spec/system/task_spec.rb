@@ -20,10 +20,8 @@ RSpec.describe 'タスク管理機能', type: :system do
         fill_in 'task[content]', with: "本を読む"
         fill_in'task[expired_at]', with: '002021-11-06'
         click_on '登録する'
-        binding.irb
         expect(page).to have_content "やることが作成されました！"
       end
-    end
       it '作成済みのタスク一覧が表示される' do
          visit tasks_path
          expect(page).to have_content '買い物'
@@ -34,5 +32,6 @@ RSpec.describe 'タスク管理機能', type: :system do
         visit tasks_path
         expect(page).to_not have_content 'プログラミング'
       end
-   end
+    end
+  end
 end

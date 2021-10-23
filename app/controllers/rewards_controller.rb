@@ -11,6 +11,7 @@ class RewardsController < ApplicationController
     @reward = current_user.rewards.build(reward_params)
     respond_to do |format|
       if @reward.save
+        flash.now[:notice] = 'ご褒美が作成されました！'
         format.js { render :lists }
       else
         format.html { redirect_to rewards_path, notice: '作成できませんでした...' }
