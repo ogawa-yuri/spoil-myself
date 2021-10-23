@@ -19,13 +19,13 @@ class SchedulesController < ApplicationController
     @schedule = current_user.schedules.build(schedule_params)
     # Schedule.create(schedule_params)
     @schedule.save
-    redirect_to schedules_path
+    redirect_to schedules_path, notice:"スケジュールが作成されました！"
   end
 
   def destroy
     @schedule = Schedule.find(params[:id])
     @schedule.destroy
-    redirect_to schedules_path, notice:"削除しました"
+    redirect_to schedules_path, notice:"スケジュールが削除されました"
   end
 
   def edit
@@ -35,7 +35,7 @@ class SchedulesController < ApplicationController
   def update
     @schedule = Schedule.find(params[:id])
     if @schedule.update(schedule_params)
-      redirect_to schedules_path, notice: "編集しました"
+      redirect_to schedules_path, notice:"スケジュールが編集されました"
     else
       render 'edit'
     end

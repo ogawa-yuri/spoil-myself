@@ -32,6 +32,25 @@ RSpec.describe 'タスク管理機能', type: :system do
         visit tasks_path
         expect(page).to_not have_content 'プログラミング'
       end
+      it 'タスクの編集ができる' do
+        visit tasks_path
+        all('a')[6].click
+        fill_in 'content', with: "食器を洗う"
+        fill_in'expired_at', with: '002021-11-08'
+        click_on '編集する'
+        expect(page).to have_content "やることが編集されました"
+      end
+      it 'タスクの削除ができる' do
+        visit tasks_path
+        all('a')[7].click
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content "やることが削除されました"
+      end
+      it 'タスクの完了ができる' do
+        visit tasks_path
+        all('a')[8].click
+        expect(page).to have_content "やることを完了にしました"
+      end
     end
   end
 end

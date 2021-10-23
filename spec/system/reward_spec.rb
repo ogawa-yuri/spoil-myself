@@ -31,6 +31,19 @@ RSpec.describe 'ご褒美管理機能', type: :system do
         visit rewards_path
         expect(page).to_not have_content '夜食獲得'
       end
+      it 'ご褒美の編集ができる' do
+        visit rewards_path
+        all('a')[6].click
+        fill_in 'content', with: "ヘッドスパに行く"
+        click_on '編集する'
+        expect(page).to have_content "ご褒美が編集されました"
+      end
+      it 'ご褒美の削除ができる' do
+        visit rewards_path
+        all('a')[7].click
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content "ご褒美が削除されました"
+      end
     end
   end
 end
