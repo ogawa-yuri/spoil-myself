@@ -2,6 +2,32 @@
   <div class="container">
     <div class="home_contents">
       <h1 class="h3 home_contents_title">毎日のタスク管理をちょっぴり楽しく</h1>
+      
+      <div class="mainImage">
+        <%= image_tag 'main.jpg',:size =>'700x480'%>
+      </div>
+      
+      <div class="aboutSection">
+      <h2>アプリについて<br><span>ABOUT<span></h2>
+      <ul>
+        <li>
+          <%= image_tag 'step1.jpg' %>
+          <h3>ご褒美登録</h3>
+          <p>やること遂行後に何のご褒美が欲<br>しいかを思い浮かべ、ご褒美を登<br>録してね。</p>
+        </li>
+        <li>
+          <%= image_tag 'step2.jpg' %>
+          <h3>やること登録と遂行</h3>
+          <p>やることを登録して、やることを<br>10個遂行してね。</p>
+        </li>
+        <li>
+          <%= image_tag 'step3.jpg' %>
+          <h3>ご褒美獲得！</h3>
+          <p>やることを10個遂行で、ご褒美<br>獲得です！</p>
+        </li>
+      <ul>
+      </div>
+      
       <%= link_to "ログインする", new_user_session_path, class: "btn home_contents_btn" %>
     </div>
   </div>
