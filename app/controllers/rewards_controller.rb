@@ -14,7 +14,7 @@ class RewardsController < ApplicationController
         flash.now[:notice] = 'ご褒美が作成されました！'
         format.js { render :lists }
       else
-        format.html { redirect_to rewards_path, notice: '作成できませんでした...' }
+        format.html { redirect_to rewards_path, notice: 'ご褒美が作成されませんでした...' }
       end
     end
   end

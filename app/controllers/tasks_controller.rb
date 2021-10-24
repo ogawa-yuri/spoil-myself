@@ -16,7 +16,7 @@ class TasksController < ApplicationController
         flash.now[:notice] = 'やることが作成されました！'
         format.js { render :lists }
       else
-        format.html { redirect_to tasks_path, notice: '投稿できませんでした...' }
+        format.html { redirect_to tasks_path, notice: 'やることが作成されませんでした...' }
       end
     end
   end

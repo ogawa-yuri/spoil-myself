@@ -18,8 +18,11 @@ class SchedulesController < ApplicationController
   def create
     @schedule = current_user.schedules.build(schedule_params)
     # Schedule.create(schedule_params)
-    @schedule.save
+    if @schedule.save
     redirect_to schedules_path, notice:"スケジュールが作成されました！"
+    else
+    redirect_to schedules_path, notice:"スケジュールが作成されませんでした..."
+    end
   end
 
   def destroy
