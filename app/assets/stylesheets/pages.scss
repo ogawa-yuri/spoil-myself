@@ -52,6 +52,8 @@
 
 .aboutSection ul{
   overflow: hidden;
+  margin-bottom: 50px;
+  line-height: 1.2;
 }
 
 .aboutSection li {
@@ -63,4 +65,9 @@
 .aboutSection li img {
   width:100%;
   height: auto;
+}
+
+footer{
+  bottom: 0; /*下に固定*/
+  text-align: center;
 }

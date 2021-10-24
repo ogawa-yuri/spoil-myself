@@ -28,7 +28,12 @@
       <ul>
       </div>
       
-      <%= link_to "ログインする", new_user_session_path, class: "btn home_contents_btn" %>
+      <% unless user_signed_in? %>
+        <%= link_to "ログインする", new_user_session_path, class: "btn home_contents_btn" %>
+      <% end %>
     </div>
+    <footer>
+    <p>Ogawa yuri 2021</p>
+    </footer>
   </div>
 </div>
