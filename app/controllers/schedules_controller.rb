@@ -21,7 +21,7 @@ class SchedulesController < ApplicationController
     if @schedule.save
     redirect_to schedules_path, notice:"スケジュールが作成されました！"
     else
-    redirect_to schedules_path, notice:"スケジュールが作成されませんでした..."
+    redirect_to schedules_path, notice:"内容が未入力で、スケジュールが作成されませんでした..."
     end
   end
 

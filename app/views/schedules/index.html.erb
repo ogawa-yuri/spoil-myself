@@ -18,7 +18,7 @@
   <tbody>
     <% @schedules.each do |schedule| %>
       <tr>
-        <td><%= link_to schedule.content , schedule %></td>
+        <td><%= link_to schedule.content, schedule %></td>
         <td><%= schedule.start_time.strftime("%m-%d") %></td>
       </tr>
     <% end %>
@@ -29,7 +29,7 @@
 
   <div class="content">
     <div class="form-tag">内容</div>
-    <%= f.text_field :content %>
+    <%= f.text_field :content, :placeholder => "友達と遊ぶ" %>
   </div>
 
     <div class="time">
