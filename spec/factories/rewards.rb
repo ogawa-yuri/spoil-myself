@@ -24,11 +24,11 @@ FactoryBot.define do
     end
 
     factory :reward_user2, class: User do
-        name { "reward_user2" }
-        email { "reward_user2@example.com" }
-        password { "11111111" }
-        password_confirmation { "11111111" }
-        admin { false }
-      end
+      name { "reward_user2" }
+      email { "reward_user2@example.com" }
+      password { "11111111" }
+      password_confirmation { "11111111" }
+      admin { false }
+    end
 
 end

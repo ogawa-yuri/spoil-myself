@@ -12,6 +12,6 @@
 </p>
 
 <%= link_to '編集', edit_schedule_path(@schedule) %>
-<%= link_to '削除',schedule_path(@schedule.id), method: :delete, data: { confirm: '本当に削除しますか?' } %>
+<%= link_to '削除',schedule_path(@schedule.id), method: :delete, id: "delete_button", data: { confirm: '本当に削除しますか?' } %>
 <%= link_to '戻る', schedules_path %>
 </div>

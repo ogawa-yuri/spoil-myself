@@ -10,7 +10,6 @@ RSpec.describe 'ユーザーや登録画面のテスト', type: :system do
 
       it 'タスク一覧画面に遷移する' do
         visit new_user_registration_path
-        binding.irb
         fill_in 'user[name]', with: @user.name
         fill_in 'user[email]', with: @user.email
         fill_in 'user[password]', with: @user.password

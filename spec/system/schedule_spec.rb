@@ -33,19 +33,18 @@ RSpec.describe 'スケジュール管理機能', type: :system do
          expect(page).to have_content 'スクワット'
       end
       it 'スケジュールの編集ができる' do
-        visit schedules_path
-        click_on '買い物'
-        click_on '編集'
+        visit edit_schedule_path(id: 3)
         fill_in 'schedule[content]', with: "プログラミングの勉強"
         click_on '編集する'
         expect(page).to have_content "スケジュールが編集されました"
       end
       it 'スケジュールの削除ができる' do
-        visit schedules_path
-        click_on '買い物'
-        click_on '削除'
+        visit schedule_path(id: 3)
+        click_on :delete_button
+        sleep(1)
         page.driver.browser.switch_to.alert.accept
-        expect(page).to have_content "スケジュールが削除されました"
+        sleep(1)
+        expect(page).to have_content 'スケジュールが削除されました'
       end
       it '他人の作成したスケジュールは一覧に表示されない' do
         visit schedules_path
