@@ -13,9 +13,10 @@ class TasksController < ApplicationController
     @task = current_user.tasks.build(task_params)
     respond_to do |format|
       if @task.save
+        flash.now[:notice] = 'やることが作成されました！'
         format.js { render :lists }
       else
-        format.html { redirect_to tasks_path, notice: '投稿できませんでした...' }
+        format.html { redirect_to tasks_path, notice: '内容or期限が未入力で、やることが作成されませんでした...' }
       end
     end
   end
@@ -23,7 +24,7 @@ class TasksController < ApplicationController
   def edit
    @task = Task.find(params[:id])#確認する
    respond_to do |format|
-     flash.now[:notice] = 'タスクの編集中'
+     flash.now[:notice] = 'やることの編集中'
      format.js { render :edit }
    end
   end
@@ -32,10 +33,10 @@ class TasksController < ApplicationController
    @task = Task.find(params[:id])
      respond_to do |format|
        if @task.update(task_params)
-         flash.now[:notice] = 'タスクが編集されました'
+         flash.now[:notice] = 'やることが編集されました'
          format.js { render :lists }
        else
-         flash.now[:notice] = 'タスクの編集に失敗しました'
+         flash.now[:notice] = 'やることの編集に失敗しました'
          format.js { render :edit_error }
        end
      end
@@ -45,7 +46,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
     respond_to do |format|
-      flash.now[:notice] = 'タスクが削除されました'
+      flash.now[:notice] = 'やることが削除されました'
       format.js { render :lists }
     end
   end
@@ -68,7 +69,7 @@ class TasksController < ApplicationController
       end
     else
       respond_to do |format|
-        flash.now[:notice] = 'タスクを完了にしました'
+        flash.now[:notice] = 'やることを完了にしました'
         format.js { render :lists and return }
       end
     end

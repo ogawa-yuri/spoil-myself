@@ -12,18 +12,18 @@
 
   <div class="field">
     <%= form.label :content, "やること：" %>
-    <%= form.text_field :content %>
+    <%= form.text_field :content, :id => 'content' %>
   </div>
   <div class="field">
     <%= form.label :expired_at, "期限："  %>
-    <%= form.date_field :expired_at %>
+    <%= form.date_field :expired_at, :id => 'expired_at' %>
   </div>
   <div class="field">
-  <%= form.label :taask_image, "写真：" %>
-  <%= form.file_field :task_image %>
+  <%= form.label :task_image, "写真：" %>
+  <%= form.file_field :task_image, :id => 'task_image' %>
   </div>
 
   <div class="actions">
-    <%= form.submit '登録する' %>
+    <%= form.submit '編集する' %>
   </div>
 <% end %>

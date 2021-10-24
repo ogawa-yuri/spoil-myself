@@ -12,10 +12,10 @@
 
   <div class="field">
     <%= form.label :content, "内容：" %>
-    <%= form.text_field :content %>
+    <%= form.text_field :content, :id => 'content'  %>
   </div>
 
   <div class="actions">
-    <%= form.submit '登録する' %>
+    <%= form.submit '編集する' %>
   </div>
 <% end %>

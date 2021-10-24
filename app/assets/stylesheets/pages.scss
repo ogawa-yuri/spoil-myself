@@ -4,7 +4,7 @@
 
 .home {
   &_contents {
-    height: 80vh;
+    height: 180vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -22,4 +22,52 @@
       color: #fff;
     }
   }
+}
+
+.mainImage {
+  width: 1000px;
+  margin-right:auto;
+  margin-left:auto;
+  margin-bottom: 50px;
+}
+
+.aboutSection{
+  width: 1000px;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.aboutSection h2{
+  text-align:center;
+  font-size:11px;
+  margin-bottom: 40px;
+  line-height: 1.2;
+
+}
+
+.aboutSection h2 span{
+  font-size:35px;
+  border-bottom:2px solid #000000;
+}
+
+.aboutSection ul{
+  overflow: hidden;
+  margin-bottom: 50px;
+  line-height: 1.2;
+}
+
+.aboutSection li {
+  float: left;
+  list-style: none;
+  width: 32%;
+}
+
+.aboutSection li img {
+  width:100%;
+  height: auto;
+}
+
+footer{
+  bottom: 0; /*下に固定*/
+  text-align: center;
 }
