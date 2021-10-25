@@ -6,8 +6,9 @@
 #   movies = Movie.create(: name: 'Star Wars' ,: name: 'Lord of the Rings' ])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#ユーザーのseedデータ
 
-User.create!(
+@general_user = User.create!(
   name: 'general_user',
   email: 'general_user@example.com',
   password: '11111111',
@@ -15,54 +16,186 @@ User.create!(
   admin: false
 )
 
-User.create!(
-  name: 'general_user2',
-  email: 'general_user2@example.com',
-  password: '11111111',
-  password_confirmation: '11111111',
-  admin: false
-)
-
-User.create!(
-  name: 'general_user3',
-  email: 'general_user3@example.com',
-  password: '11111111',
-  password_confirmation: '11111111',
-  admin: false
-)
-
-User.create!(
-  name: 'general_user4',
-  email: 'general_user4@example.com',
-  password: '11111111',
-  password_confirmation: '11111111',
-  admin: false
-)
-
-User.create!(
-  name: 'general_user5',
-  email: 'general_user5@example.com',
-  password: '11111111',
-  password_confirmation: '11111111',
-  admin: false
-)
-
-User.create!(
-  name: 'general_user6',
-  email: 'general_user6@example.com',
+@admin_user = User.create!(
+  name: 'admin_user',
+  email: 'admin_user@example.com',
   password: '11111111',
   password_confirmation: '11111111',
   admin: true
 )
 
-5.times do |i|
-  Task.create(user_id: User.find(i+1).id, content: '勉強する :i+1', expired_at:'2021/11/3' )
-end
+#タスクのseedデータ
 
-5.times do |i|
-  Reward.create(user_id: User.find(i+1).id, content: 'コンビニスイーツを買う :i+1' )
-end
+Task.create(
+  user_id: @general_user.id,
+  content: '勉強する',
+  expired_at:'2021/11/3'
+)
 
-5.times do |i|
-  Schedule.create(user_id: User.find(i+1).id, content: '友達と遊ぶ :i+1', start_time:'2021/11/3')
-end
+Task.create(
+  user_id: @general_user.id,
+  content: '買い物に行く',
+  expired_at:'2021/11/4'
+)
+
+Task.create(
+  user_id: @general_user.id,
+  content: '英語の勉強をする',
+  expired_at:'2021/11/5'
+)
+
+Task.create(
+  user_id: @general_user.id,
+  content: 'スクワットをする',
+  expired_at:'2021/11/6'
+)
+
+Task.create(
+  user_id: @general_user.id,
+  content: '夕飯を作る',
+  expired_at:'2021/11/7'
+)
+
+Task.create(
+  user_id: @admin_user.id,
+  content: ' 英語の勉強する',
+  expired_at:'2021/11/6'
+)
+
+Task.create(
+  user_id: @admin_user.id,
+  content: '水を買いにに行く',
+  expired_at:'2021/11/2'
+)
+
+Task.create(
+  user_id: @admin_user.id,
+  content: 'プログラミングの勉強をする',
+  expired_at:'2021/11/7'
+)
+
+Task.create(
+  user_id: @admin_user.id,
+  content: '腹筋をする',
+  expired_at:'2021/11/11'
+)
+
+Task.create(
+  user_id: @admin_user.id,
+  content: '朝ごはんを作る',
+  expired_at:'2021/11/13'
+)
+
+#スケジュールのseedデータ
+
+Schedule.create(
+  user_id: @general_user.id,
+  content: '友達と遊ぶ',
+  start_time:'2021/11/15'
+)
+
+Schedule.create(
+  user_id: @general_user.id,
+  content: '宿題をやる',
+  start_time:'2021/11/2'
+)
+
+Schedule.create(
+  user_id: @general_user.id,
+  content: '掃除機をかける',
+  start_time:'2021/11/22'
+)
+
+Schedule.create(
+  user_id: @general_user.id,
+  content: '仕事に行く',
+  start_time:'2021/11/23'
+)
+
+Schedule.create(
+  user_id: @general_user.id,
+  content: '読書する',
+  start_time:'2021/11/24'
+)
+
+Schedule.create(
+  user_id: @admin_user.id,
+  content: '家族とご飯',
+  start_time:'2021/11/15'
+)
+
+Schedule.create(
+  user_id: @admin_user.id,
+  content: 'ランニング',
+  start_time:'2021/11/2'
+)
+
+Schedule.create(
+  user_id: @admin_user.id,
+  content: '仕事する',
+  start_time:'2021/11/22'
+)
+
+Schedule.create(
+  user_id: @admin_user.id,
+  content: '夕飯の準備をする',
+  start_time:'2021/11/23'
+)
+
+Schedule.create(
+  user_id: @admin_user.id,
+  content: '読書する',
+  start_time:'2021/11/24'
+)
+
+#ご褒美のseedデータ
+
+Reward.create(
+  user_id: @general_user.id,
+  content: 'ケーキを買う',
+)
+
+Reward.create(
+  user_id: @general_user.id,
+  content: '昼寝する',
+)
+
+Reward.create(
+  user_id: @general_user.id,
+  content: '映画を見に行く',
+)
+
+Reward.create(
+  user_id: @general_user.id,
+  content: 'Uber Eatsする権利',
+)
+
+Reward.create(
+  user_id: @general_user.id,
+  content: 'コンビニスイーツ買う',
+)
+
+Reward.create(
+  user_id: @admin_user.id,
+  content: 'ケーキを買う',
+)
+
+Reward.create(
+  user_id: @admin_user.id,
+  content: 'マッサージに行く',
+)
+
+Reward.create(
+  user_id: @admin_user.id,
+  content: '映画を見に行く',
+)
+
+Reward.create(
+  user_id: @admin_user.id,
+  content: '外食する権利',
+)
+
+Reward.create(
+  user_id: @admin_user.id,
+  content: 'コンビニで好きなもの買う',
+)
