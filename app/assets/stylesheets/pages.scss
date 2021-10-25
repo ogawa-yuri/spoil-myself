@@ -7,7 +7,7 @@
     height: 180vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
     text-align: center;
     &_title {
       margin-top: 12vh;
@@ -24,11 +24,18 @@
   }
 }
 
+h1{
+  text-align:center;
+  font-size:35px;
+  margin-top:70px;
+  margin-bottom: 70px;
+}
+
 .mainImage {
   width: 1000px;
   margin-right:auto;
   margin-left:auto;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
 }
 
 .aboutSection{
@@ -54,6 +61,10 @@
   overflow: hidden;
   margin-bottom: 50px;
   line-height: 1.2;
+}
+
+.aboutSection p{
+  margin-bottom: 70px;
 }
 
 .aboutSection li {
