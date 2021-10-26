@@ -6,11 +6,14 @@ Rails.application.routes.draw do
       post :toggle
     end
   end
-  root 'pages#home'
+  root 'pages#home' 
+
   devise_for :users, controllers: {
     sessions: "users/sessions",
     registrations: "users/registrations",
   }
+  post '/guest_sign_in' => 'homes#guest'
+  
   resources :users, only:[:show]
   resources :rewards
   resources :schedules

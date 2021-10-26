@@ -24,6 +24,10 @@ class ApplicationController < ActionController::Base
    end
   end
 
+  def guest_user
+    current_user == User.find_by(name: 'ゲストユーザー')
+  end
+
  private
    def tasks_count
      @reward_tasks = current_user.tasks.where(status: true, roulette: false)
