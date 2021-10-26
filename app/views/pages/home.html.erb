@@ -1,8 +1,9 @@
+<html>
 <div class="home">
-  <div class="container">
-    <div class="home_contents">
+  <body class="h-100">
+    <div class="container">
       <h1>Spoil Myself</h1>
-      
+
       <div class="mainImage">
         <%= image_tag 'main.jpg',:size =>'700x480'%>
       </div>
@@ -33,9 +34,11 @@
       <% unless user_signed_in? %>
         <%= link_to "ログインする", new_user_session_path, class: "btn home_contents_btn" %>
       <% end %>
+
     </div>
-    <footer>
-    <p>Ogawa yuri 2021</p>
+    <footer class="footer">
+      <p>Copyright © 2021 Ogawa yuri</p>
     </footer>
-  </div>
-</div>
+  </body>
+ </div>
+</html>
