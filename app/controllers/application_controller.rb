@@ -19,9 +19,13 @@ class ApplicationController < ActionController::Base
  def after_sign_in_path_for(resource)
    if current_user.try(:admin?)
       rails_admin_path         
-   else 
+   elsif 
       tasks_path              
    end
+  end
+
+  def guest_user
+    current_user == User.find_by(name: 'ゲストユーザー')
   end
 
  private

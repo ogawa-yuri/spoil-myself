@@ -1,7 +1,9 @@
-<h3>マイページ画面</h3>
+<div style="margin: 70px 0px 0px 70px" >
+  <h4 id="title">マイページ画面</h4>
+  <br>
+
 <% if user_signed_in? && @user == current_user %>
- <p class="d-flex justify-content-end">
- </p>
+ <p class="d-flex justify-content-end"></p>
  <% end %>
  <% if params[:id].nil? || @user.id == current_user.id %>
    <p>名前：<%= current_user.name %></p>
@@ -15,3 +17,4 @@
    ログアウトしますか？
    <%= link_to "はい", destroy_user_session_path, method: :delete %>
  <% end %>
+ </div>

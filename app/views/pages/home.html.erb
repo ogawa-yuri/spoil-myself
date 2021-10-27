@@ -1,8 +1,9 @@
+<html>
 <div class="home">
-  <div class="container">
-    <div class="home_contents">
+  <body class="h-100">
+    <div class="container">
       <h1>Spoil Myself</h1>
-      
+
       <div class="mainImage">
         <%= image_tag 'main.jpg',:size =>'700x480'%>
       </div>
@@ -30,12 +31,32 @@
       <ul>
       </div>
       
+      <div class="login">
       <% unless user_signed_in? %>
-        <%= link_to "ログインする", new_user_session_path, class: "btn home_contents_btn" %>
+      　<div class="login">
+      　  <ul>
+            <li>
+              <%= link_to "ログイン", new_user_session_path, class: "btn" %>
+            </li>
+            <li>
+            <%= link_to "管理者ログイン", new_user_session_path, class: "btn2" %>
+            </li>
+        </ul>
+        </div>
+        <div class="guest_login">
+          <ul>
+          <li>
+            <%= link_to 'ゲストログイン（一般）', guest_sign_in_path , method: :post, class: "guest" %>
+          </li>
+          <li>
+            <%= link_to 'ゲストログイン（管理者）', homes_admin_sign_in_path, method: :post, class: "guest2" %>
+          </li>
+          </ul>
+        </div>
       <% end %>
+      </div>
+
     </div>
-    <footer>
-    <p>Ogawa yuri 2021</p>
-    </footer>
-  </div>
-</div>
+  </body>
+ </div>
+</html>

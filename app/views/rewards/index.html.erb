@@ -1,25 +1,18 @@
-<p id="notice"><%= notice %></p>
-<br>
-<div style="margin-left:30px">
+<div style="margin: 70px 0px 0px 70px" >
   <h4 id="title">ご褒美を登録する</h4>
   <br>
-</div>
   <%= render partial: 'rewards/form', locals: { reward: @reward } %>
 
-  <br>
-  <br>
+  <br><br><br>
 
   <thead>
     <tr>
-      <div style="margin-left:30px">
-        <h4>一覧</h4><i class="far fa-clock"></i>
-        <br>
+        <h4 id="title">一覧</h4>
         <th colspan="3"></th>
-      </div>
     </tr>
   </thead>
 
   <div id="rewards_area">
     <%= render partial: 'rewards/lists', locals: { rewards: @rewards } %>
   </div>
-<i class="far fa-clock"></i>
+</div>
