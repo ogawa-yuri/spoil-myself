@@ -19,7 +19,9 @@ RSpec.describe 'タスク管理機能', type: :system do
         visit tasks_path
         fill_in 'task[content]', with: "本を読む"
         fill_in'task[expired_at]', with: '002021-11-06'
+        sleep(1)
         click_on '登録する'
+        sleep(1)
         expect(page).to have_content "やることが作成されました！"
       end
       it '作成済みのタスク一覧が表示される' do

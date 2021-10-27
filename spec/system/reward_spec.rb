@@ -18,7 +18,9 @@ RSpec.describe 'ご褒美管理機能', type: :system do
       it 'ご褒美の作成ができる' do
         visit rewards_path
         fill_in 'reward[content]', with: "コンビニで好きなものを買う"
+        sleep(1)
         click_on '登録する'
+        sleep(1)
         expect(page).to have_content "ご褒美が作成されました！"
       end
       it '作成済みのご褒美一覧が表示される' do

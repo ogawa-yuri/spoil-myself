@@ -78,7 +78,7 @@ RSpec.describe 'ユーザーや登録画面のテスト', type: :system do
         fill_in 'user[email]', with: @user.email
         fill_in 'user[password]', with: @user.password
         click_button 'ログイン'
-        expect(page).to have_content 'やることを登録する'
+        expect(page).to have_content 'マイページ画面'
       end
     end
   end
