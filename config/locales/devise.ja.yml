@@ -27,6 +27,9 @@ ja:
         remember_me: "次回から自動的にログイン"
     models:
       user: "ユーザ"
+      reward: ご褒美
+      schedule: スケジュール
+      task: やること
   users:
     confirmations:
       new:

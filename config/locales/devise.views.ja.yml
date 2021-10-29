@@ -27,6 +27,9 @@ ja:
         updated_at: 更新日
     models:
       user: ユーザー
+      reward: ご褒美
+      schedule: スケジュール
+      task: やること
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
