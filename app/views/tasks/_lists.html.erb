@@ -8,7 +8,7 @@
           <% end %>
           <% if task.id.present? %>
             <h5>やること：<%= task.content %></h5>
-            <h5>期限：<%= task.expired_at %></h5>
+            <h5>期限：<%= task.expired_at.strftime("%Y-%m-%d")  %></h5>
           <% end %>
           <div class="task-content" id ="this_task_<%= task.id %>">
              <p><%= link_to "編集", edit_task_path(task), remote: true %></p>
